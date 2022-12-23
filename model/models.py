@@ -20,10 +20,13 @@ def split(df) -> pd.DataFrame:
     
     logging.info('Defining X and y')
     
+    # splitting on X and Y
     X = df.iloc[:, :-1]
     y = df['target']
     
     logging.info('Splitting on train and test')
+    
+    # splitting on trains and tests
     X_train, X_test, y_train, y_test = train_test_split(X,
                                                         y,
                                                         random_state=1337)
@@ -39,7 +42,7 @@ def grid_ranf(X_train, y_train) -> dict:
     
     param_grid = {
     'n_estimators': [10, 50, 100],
-    'max_depth': [5, 10]}
+    'max_depth': [5, 7, 10]}
     
     grid_search = GridSearchCV(model, param_grid, cv=5)    
     grid_search.fit(X_train, y_train)
