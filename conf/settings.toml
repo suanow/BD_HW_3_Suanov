@@ -1,0 +1,7 @@
+[DATA]
+data_set = "https://raw.githubusercontent.com/5x12/ml-cookbook/master/supplements/data/heart.csv"
+
+
+[MODEL]
+ranf_conf = "model/conf/RandomForestClassifier.pkl"
+SVC_conf = "model/conf/SVC.pkl"
