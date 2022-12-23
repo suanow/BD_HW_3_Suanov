@@ -69,7 +69,7 @@ def grid_svc(X_train, y_train) -> dict:
 
 def training(ModelClass, X_train:pd.DataFrame, y_train:pd.DataFrame, **kwargs) -> any:
     """ 
-    Training the choosen model
+    Training the choosen model.
     """
     # initialize the model
     model = ModelClass(**kwargs)
