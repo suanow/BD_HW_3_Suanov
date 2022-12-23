@@ -54,7 +54,7 @@ def grid_svc(X_train, y_train) -> dict:
     model = SVC()
     
     param_grid = {
-    'C': [0.1, 1, 10],
+    'C': [0.1, 1, 5, 10],
     'gamma': [0.1, 1, 10]}
 
     grid_search = GridSearchCV(model, param_grid, cv=5)
@@ -89,6 +89,8 @@ def predict(values, model_path) -> list:
     """
     Making a prediction based on the input values and the model we choose
     """
+    
+    # reshaping the list
     values = np.array(values).reshape(1, -1)
     model = load_model(model_path)
     logging.info('Model loaded')
@@ -104,5 +106,6 @@ ranf_params = grid_ranf(X_train, y_train)
 
 training(RandomForestClassifier, X_train, y_train, **ranf_params)
 training(SVC, X_train, y_train, **SVC_params)
+
 
 # python entrypoint.py --values 1 2 3 4 5 6 7 8 9 10 11 12 13 --model_path model/conf/RandomForestClassifier.pkl
